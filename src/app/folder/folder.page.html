@@ -13,9 +13,12 @@
       <ion-title size="large">{{ folder }}</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-spinner *ngIf="!newsList"></ion-spinner>
+  </div>
+  <div *ngIf="newsList">
+    <div *ngFor="let news of newsList">
+      <app-news-card [news]="news"></app-news-card>
+    </div>
   </div>
 </ion-content>
